@@ -1,0 +1,7 @@
+version: 1.2
+workflows: 
+  - subclass: WDL
+    primaryDescriptorPath: /MPRAmodel.wdl
+    testParameterFiles:
+      - /MPRAmodel_inputs.json
+    name: MPRAmodel
