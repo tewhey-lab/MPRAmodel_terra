@@ -56,6 +56,7 @@ task model {
   String negCtrl
   String posCtrl
 
+  String docker_tag
   String method
   String correction
   String tTest
