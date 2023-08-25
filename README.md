@@ -7,10 +7,6 @@ This fork is designed to facilitate the running of this pipeline on Terra.bio. T
 MPRAmodel.R:
       A series of functions to assist in analysis of MPRA count tables
 
-## Quick Start:
-```
-
-```
 
 ## Arguments
 
