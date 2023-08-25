@@ -1,0 +1,19 @@
+{
+  "MPRAmodel.count": "File",
+  "MPRAmodel.attributes": "File",
+  "MPRAmodel.condition": "File",
+  "MPRAmodel.negCtrl": "String",
+  "MPRAmodel.posCtrl": "String",
+  "MPRAmodel.project": "String",
+  "MPRAmodel.prefix": "String",
+  "MPRAmodel.cell_num": "Int",
+  "MPRAmodel.cutoff": "Float? (optional, default = 0.01)",
+  "MPRAmodel.method": "String? (optional, default = \"ss\")",
+  "MPRAmodel.tTest": "String? (optional, default = \"T\")",
+  "MPRAmodel.paired": "String? (optional, default = \"F\")",
+  "MPRAmodel.prior": "String? (optional, default = \"F\")",
+  "MPRAmodel.correction": "String? (optional, default = \"BH\")",
+  "MPRAmodel.DEase": "String? (optional, default = \"T\")",
+  "MPRAmodel.upDisp": "String? (optional, default = \"T\")",
+  "MPRAmodel.docker_tag": "String? (optional, default = \"latest\")"
+}
