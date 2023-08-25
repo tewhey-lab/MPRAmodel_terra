@@ -1,12 +1,15 @@
-# MPRA count analysis pipeline
+# MPRAmodel
+
+#### Part 3 of the MPRAsuite (of 3)
+This fork is designed to facilitate the running of this pipeline on Terra.bio. To run the pipeline locally please see the original branch of the repository.
+
 
 MPRAmodel.R:
       A series of functions to assist in analysis of MPRA count tables
 
 ## Quick Start:
 ```
-	source("MPRAmodel.R")
-	mpra_out <- MPRAmodel(<countsTable>, <attributesData>, <conditionData>, <filePrefix>, <negCtrlName>, <posCtrlName>, <projectName>)
+
 ```
 
 ## Arguments
@@ -17,7 +20,6 @@ MPRAmodel.R:
    * `conditionData` : 2 columns w/no header column 1 is replicates as found in the count table, column 2 indicates cell type. This can be done in the program of your choice, or taken from the output of [MPRAcount](https://github.com/tewhey-lab/tag_analysis_WDL).
 
 ### Other arguments needed <br>
-  * `exclList` : ARRAY; List of cell types, in string format, that should be excluded from the analysis. This array is empty by default.
   * `filePrefix` : STRING; All written files will have this string included in the file name, if running the pipeline multiple times with  different settings this is a good place to differentiate them
   * `plotSave` : LOGICAL; Default `TRUE`, indicator of whether or not to save non-normalization QC plots
   * `altRef` :  LOGICAL; Default `TRUE`, indicator of how to sort alleles for `cellSpecificTtest`
@@ -36,90 +38,3 @@ MPRAmodel.R:
   * `upDisp` : LOGICAL; Default `TRUE`, update dispersions with cell type specific calculations
   * `prior` : LOGICAL; Default `FALSE`, use `betaPrior=F` when calculating the cell type specific dispersions
 
-
-## Functions (in alphabetical order) <br>
-  * `addHaplo` -  Add haplotype column to attribute data and resolve oligos with multiple projects, if oligos with multiple projects are listed separately, they will be collapsed into a single row, if oligos are identical but the SNP is different for them, an error will be thrown <br>
-     _use_ :
-      ```
-      addHaplo(attributesData, negCtrlName, posCtrlName, projectName)
-      ```
-  * `cellSpecificTtest` - Function to perform TTest on individual cell types, determine the allelic skew, and identify emVARs <br>
-     _use_ :
-      ```
-      cellSpecificTtest(attributesData, counts_norm, dups_output, ctrl_mean, exp_mean, ctrl_cols, exp_cols, altRef, correction, cutoff)
-      ```
-  * `conditionStandard` - Standardize condition data <br>
-    _use_ :
-    ```
-    conditionStandard(conditionData)
-    ```
-  * `dataOut` - Retrieve output data for future functions - if only looking for results and not the plots this is the only function that needs to be called. Most functions should only need an output from here <br>
-    _use_ :
-    ```
-    dataOut(countsData, attributesData, conditionData, exclList, altRef, file_prefix, method, negCtrlName, tTest, Dease, correction, cutoff, upDisp, prior)
-    ```
-  * `DESkew` - Function to determine the allelic skew of oligos and identify emVARs using the DESeq method to determine allelic skew <br>
-    _use_ :
-    ```
-    DESkew(conditionData, counts_norm, attributesData, celltype, dups_output, prior)
-    ```
-  * `expandDups` - Expand IDs that denote duplicate oligos in count/DESeq results, or any dataframe with rownames that are separated by a ";" <br>
-    _use_ :
-    ```
-    expandDups(output)
-    ```
-  * `fileDate` - Generate the date in YYYYMMDD format for separation of runs in the project <br>
-    _use_ :
-    ```
-    fileDate()
-    ```
-  * `MPRAmodel` - Overall function which will run everything once called <br>
-    _use_ :
-    ```
-    MPRAmodel(countsData, attributesData, conditionData, exclList, filePrefix, plotSave, altRef, method, negCtrlName, posCtrlName, projectName, tTest, Dease, correction, cutoff, upDisp, prior, …)
-    ```
-  * `mpraScatter` - Function to produce scatter plot of counts data for visualization of correlation between two samples <br>
-      _use_ :
-      ```
-      mpraScatter(conditionData, countsOut, sampleX, sampleY, xmax, ymax, plotSave)
-      ```
-  * `oligoIsolate` - Remove Error, CIGAR, MD and position columns if necessary; aggregate count data with relation to the oligo, writes a copy of the collapsed raw counts  <br>
-     _use_ :
-    ```
-    oligoIsolate(countsData, file_prefix)
-    ```
-  * `panel.cor` - Internal function to produce correlation scatter plots <br>
-      _use_ :
-      ```
-      panel.cor(x, y, digits, prefix, cex.cor, …)
-      ```
-  * `panel.lm` - Internal function to produce correlation scatter plots <br>
-      _use_ :
-      ```
-      panel.lm(x, y, pch, col.lm, …)
-      ```
-  * `panel.nlm` - Internal function to produce correlation scatter plots <br>
-      _use_ :
-      ```
-      panel.nlm(x, y, pch, col.lm, …)
-      ```
-  * `plor_logFC` - Function to produce plots showing the expression fold change vs. normalized tag counts <br>
-      _use_ :
-      ```
-      plot_logFC(full_output, sample, negCtrlName, posCtrlName)
-      ```
-  * `processAnalysis` - Initial processing of files via DESeq analysis <br>
-      _use_ :
-      ```
-      processAnalysis(countsData, conditionData, exclList) <br>
-      ```
-  * `tagNorm` - Normalize DESeq results and plot normalized densities for each cell type  <br>
-      _use_ :
-      ```
-      tagNorm(countsData, conditionData, attributesData, exclList, method, negCtrlName, upDisp, prior) <br>
-      ```
-  * `tagSig` - Replace dispersions of normalized dds with cell type specific dispersions, called within tagNorm does not need to be called by itself <br>
-      _use_ :
-      ```
-      tagSig(dds_results, dds_rna, cond_data, exclList, prior)
-      ```
