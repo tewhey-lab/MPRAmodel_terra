@@ -69,7 +69,7 @@ task model {
   Int model_disk
 
   command <<<
-    Rscript /scripts/analysis_sub_terra.R ${project} ${prefix} ${negCtrl} ${posCtrl} ${method} ${tTest} ${DEase} ${correction} ${cutoff} ${upDisp} ${prior} ${paired} ${count} ${attributes} ${condition}
+    Rscript /scripts/analysis_sub_terra.R ${project} ${prefix} ${negCtrl} ${posCtrl} ${method} ${tTest} ${DEase} ${correction} ${cutoff} ${upDisp} ${prior} ${paired} ${attributes} ${count} ${condition}
   >>>
   output {
     Array[File]+ plots=glob("plots/*")
