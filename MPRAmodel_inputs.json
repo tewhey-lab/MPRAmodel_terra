@@ -6,6 +6,7 @@
   "MPRAmodel.posCtrl": "String",
   "MPRAmodel.project": "String",
   "MPRAmodel.prefix": "String",
+  "MPRAmodel.out_dir": "String",
   "MPRAmodel.cell_num": "Int",
   "MPRAmodel.cutoff": "Float? (optional, default = 0.01)",
   "MPRAmodel.method": "String? (optional, default = \"ss\")",
