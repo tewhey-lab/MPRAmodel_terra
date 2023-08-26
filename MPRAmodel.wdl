@@ -77,7 +77,8 @@ task model {
   }
   runtime {
     docker: "quay.io/tewhey-lab/mpramodel:${docker_tag}"
-    memory: "5G"
+    memory: "25G"
+    cpu: 8
     disks: "local-disk ${model_disk} SSD"
   }
 }
