@@ -100,8 +100,8 @@ task relocate {
   String docker_tag
 
   command <<<
-    mkdir ${out_dir}/plots
-    mkdir ${out_dir}/results
+    # mkdir ${out_dir}/plots
+    # mkdir ${out_dir}/results
     mv ${sep=' ' plots_out} ${out_dir}/plots/
     mv ${sep=' ' res_out} ${out_dir}/results/
   >>>
