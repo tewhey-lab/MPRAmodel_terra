@@ -102,6 +102,7 @@ task relocate {
   command <<<
     # mkdir ${out_dir}/plots
     # mkdir ${out_dir}/results
+    echo `mv ${sep=' ' plots_out} ${out_dir}/plots/`
     mv ${sep=' ' plots_out} ${out_dir}/plots/
     mv ${sep=' ' res_out} ${out_dir}/results/
   >>>
