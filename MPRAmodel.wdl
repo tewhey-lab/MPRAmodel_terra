@@ -7,7 +7,7 @@ workflow MPRAmodel {
 
   Int cell_num # Number of cell types being tested
 
-  String out_dir
+  File out_dir
   String project # library name (OLXX)
   String prefix # any alteration from standard run (ex: _negative_controls)
   String negCtrl # string indicating negative controls as indicated in the projects column of attributes table
