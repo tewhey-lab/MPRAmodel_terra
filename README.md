@@ -12,17 +12,15 @@ This fork is designed to facilitate the running of this pipeline on Terra.bio. T
    * `conditionData` : 2 columns w/no header column 1 is replicates as found in the count table, column 2 indicates cell type. This can be done in the program of your choice, or taken from the output of [MPRAcount](https://github.com/tewhey-lab/tag_analysis_WDL).
 
 ### Other arguments needed <br>
-  * `filePrefix` : STRING; All written files will have this string included in the file name, if running the pipeline multiple times with  different settings this is a good place to differentiate them
-  * `plotSave` : LOGICAL; Default `TRUE`, indicator of whether or not to save non-normalization QC plots
-  * `altRef` :  LOGICAL; Default `TRUE`, indicator of how to sort alleles for `cellSpecificTtest`
-  * `method` : STRING; Default "ss", indicator of method to be used to normalize the data
+  * **`filePrefix`** : STRING; All written files will have this string included in the file name, if running the pipeline multiple times with  different settings this is a good place to differentiate them
+  * **`method`** : STRING; Default "ss", indicator of method to be used to normalize the data
       * `'ss'` : Summit Shift - shifts the l2fc density peak to line up with 0
       * `'ssn'` : Summit Shift (Negative Controls Only) - shifts the peak of negative controls to 0
       * `'ro'` : Remove outliers - remove oligos that don't have a p-value or have a p-value > 0.001
       *`'nc'` : Negative Controls - normalize only the negative controls
-  * `negCtrlName` : STRING; Default "negCtrl", how negative controls are indicated in the project column of the `attributesData` file
-  * `posCtrlName` : STRING; Default "expCtrl", how positive controls are indicated in the project column of the `attributesData` file
-  * `projectName` : STRING; Default "MPRA_PROJ", a generalized name for the overall project
+  * **`negCtrlName`** : STRING; Default "negCtrl", how negative controls are indicated in the project column of the `attributesData` file
+  * **`posCtrlName`** : STRING; Default "expCtrl", how positive controls are indicated in the project column of the `attributesData` file
+  * **`projectName`** : STRING; Default "MPRA_PROJ", a generalized name for the overall project
   * `tTest` : LOGICAL; Default `TRUE`, perform cell type specific tTest to determine emVARs
   * `DEase` : LOGICAL; Default `TRUE`, use Differential Expression methods to detect Allele Specific Expression (this method can be found [here](http://rstudio-pubs-static.s3.amazonaws.com/275642_e9d578fe1f7a404aad0553f52236c0a4.html))
   * `correction` : STRING; Default "BH", indicator of whether to use Benjamini Hochberg ("BH") or Bonferroni ("BF") for p-value correction
