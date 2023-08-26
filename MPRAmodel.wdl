@@ -24,7 +24,7 @@ workflow MPRAmodel {
   Float? cutoff = 0.01 # See docs for more info
 
   Int model_disk = ceil(size(count, "GB") + size(attributes, "GB") + 0.5*cell_num) + 1 ### calculation for the disk space needed for the project keeping in mind that we need to load files in as well as space for output files
-  Int rel_disk = ceil(size(model.plots, "GB") + size(model.files, "GB"))
+  Int rel_disk = ceil(0.5*cell_num) + 1
 
   call model { input:
         count = count,
