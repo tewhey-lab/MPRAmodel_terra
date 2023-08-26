@@ -4,10 +4,6 @@
 This fork is designed to facilitate the running of this pipeline on Terra.bio. To run the pipeline locally please see the original branch of the repository.
 
 
-MPRAmodel.R:
-      A series of functions to assist in analysis of MPRA count tables
-
-
 ## Arguments
 
 ### There are 3 files that this pipeline needs for input. <br>
