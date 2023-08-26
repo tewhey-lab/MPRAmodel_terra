@@ -17,7 +17,7 @@ This fork is designed to facilitate the running of this pipeline on Terra.bio. T
       * `'ss'` : Summit Shift - shifts the l2fc density peak to line up with 0
       * `'ssn'` : Summit Shift (Negative Controls Only) - shifts the peak of negative controls to 0
       * `'ro'` : Remove outliers - remove oligos that don't have a p-value or have a p-value > 0.001
-      *`'nc'` : Negative Controls - normalize only the negative controls
+      * `'nc'` : Negative Controls - normalize only the negative controls
   * **`negCtrlName`** : STRING; Default "negCtrl", how negative controls are indicated in the project column of the `attributesData` file
   * **`posCtrlName`** : STRING; Default "expCtrl", how positive controls are indicated in the project column of the `attributesData` file
   * **`projectName`** : STRING; Default "MPRA_PROJ", a generalized name for the overall project
