@@ -106,7 +106,7 @@ task relocate {
     mv ${sep=' ' res_out} ${out_dir}/results/
   >>>
   runtime {
-    docker: "quay.io/tewhey-lab/mpramodel:${docker_tag}
+    docker: "quay.io/tewhey-lab/mpramodel:${docker_tag}"
     memory: "4G"
     disks: "local-disk ${rel_disk} SSD"
   }
